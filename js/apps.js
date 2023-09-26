@@ -9,6 +9,7 @@ const displayLoadUniverseHub = (universe) => {
     // console.log(universe);
 
     const phoneContainer = document.getElementById('phone-container');
+    universe=universe.slice(0,6);
 
     universe.forEach(universe1 => {
         console.log(universe1);
@@ -28,9 +29,15 @@ const displayLoadUniverseHub = (universe) => {
         </div>
         <div class="card-footer">
           <h5>${universe1.name}</h5>
+          <div class="d-flex justify-content-between">
           <div class="d-flex align-items-sm-start"> 
           <img src="Frame.svg">
           <p class="ps-2">${universe1.published_in}</p>
+          </div>
+          <div>
+          <img src="Frame1.svg">
+          </div>
+
           </div>
          
           
