@@ -1,21 +1,21 @@
-const loadUniverseHub= async()=>{
-    const url=`https://openapi.programming-hero.com/api/ai/tools`;
-    const res=await fetch(url);
-    const data=await res.json();
+const loadUniverseHub = async () => {
+    const url = `https://openapi.programming-hero.com/api/ai/tools`;
+    const res = await fetch(url);
+    const data = await res.json();
     displayLoadUniverseHub(data.data.tools);
 }
 
-const displayLoadUniverseHub=(universe)=>{
+const displayLoadUniverseHub = (universe) => {
     // console.log(universe);
 
-    const phoneContainer=document.getElementById('phone-container');
+    const phoneContainer = document.getElementById('phone-container');
 
     universe.forEach(universe1 => {
         console.log(universe1);
 
-        const divContainer=document.createElement('div');
+        const divContainer = document.createElement('div');
         divContainer.classList.add('col');
-        divContainer.innerHTML=`
+        divContainer.innerHTML = `
         <div class="card h-100 shadow-lg rounded-3">
         <img src="${universe1.image}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -28,6 +28,12 @@ const displayLoadUniverseHub=(universe)=>{
         </div>
         <div class="card-footer">
           <h5>${universe1.name}</h5>
+          <div class="d-flex align-items-sm-start"> 
+          <img src="Frame.svg">
+          <p class="ps-2">${universe1.published_in}</p>
+          </div>
+         
+          
         </div>
     </div>
         `
