@@ -131,14 +131,56 @@ document.getElementById('btn-see-more').addEventListener('click', function () {
 });
 
 
-const loadDetails = async id => {
-    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+const loadDetails = async () => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/01`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
+    displayLoadDetails(data.data);
 }
 
-// const displayPhoneDetails=universe1=>{
-//     console.log(universe);}
+const displayLoadDetails = universe => {
+    console.log(universe);
+
+    const detailsModal=document.getElementById('details-modal');
+    detailsModal.innerHTML=` 
+    <h5>${universe.description}</h5>
+    <div class="d-flex justify-content-between pt-3">
+        <div>
+        <p style="width: 50.35px; height: 50px;" class="text-success text-center fw-bold">${universe.pricing[0].price} <br> ${universe.pricing[0].plan} </p>
+        </div>
+        <div>
+        <p style="width: 50px;" class="text-warning text-center fw-bold">${universe.pricing[1].price}<br>${universe.pricing[1].plan}</p>
+        </div>
+        <div>
+        <p style="width: 80px;" class="text-danger text-center fw-bold">${universe.pricing[2].price} <br> ${universe.pricing[2].plan}</p>
+        </div> 
+    </div>
+
+    <div class="d-flex">
+        <div>
+        <h5>Features</h5>
+        <ol>
+            <li>${universe.features[1].feature_name}</li> 
+            <li>${universe.features[2].feature_name}</li> 
+            <li>${universe.features[3].feature_name}</li>
+        </ol>
+
+        </div>
+        <div>
+        <h5>integrations</h5>
+        <ol>
+            <li>${universe.integrations[0]}</li> 
+            <li>${universe.integrations[1]}</li> 
+            <li>${universe.integrations[2]}</li>
+        </ol>
+
+
+        </div>
+
+    </div>
+    `
+}
+loadDetails();
+
 
 loadUniverseHub();
