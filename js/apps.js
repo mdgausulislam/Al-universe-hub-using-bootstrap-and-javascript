@@ -109,7 +109,7 @@ const displayLoadUniverseHub = (universe) => {
             </div>
 
             <div>
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button onclick="loadDetails('${universe1.id}')" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="Frame1.svg">
         </button>
             </div>
@@ -131,16 +131,15 @@ document.getElementById('btn-see-more').addEventListener('click', function () {
 });
 
 
-const loadDetails = async () => {
-    const url = `https://openapi.programming-hero.com/api/ai/tool/01`;
+const loadDetails = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
     const data = await res.json();
     displayLoadDetails(data.data);
 }
 
 const displayLoadDetails = universe => {
-    console.log(universe);
-
+   
     const detailsModal=document.getElementById('details-modal');
     detailsModal.innerHTML=` 
     <h5>${universe.description}</h5>
@@ -183,7 +182,6 @@ const displayLoadDetails = universe => {
     <p class="p-3">${universe.input_output_examples[0].output} </p>
     `;
 }
-loadDetails();
-
+// loadDetails();
 
 loadUniverseHub();
