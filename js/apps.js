@@ -164,7 +164,6 @@ const displayLoadDetails = universe => {
             <li>${universe.features[2].feature_name}</li> 
             <li>${universe.features[3].feature_name}</li>
         </ol>
-
         </div>
         <div>
         <h5>integrations</h5>
@@ -173,12 +172,16 @@ const displayLoadDetails = universe => {
             <li>${universe.integrations[1]}</li> 
             <li>${universe.integrations[2]}</li>
         </ol>
-
-
         </div>
+    </div> `;
 
-    </div>
-    `
+
+    const detailsModal1=document.getElementById('details-modal1');
+    detailsModal1.innerHTML=`
+    <img src="${universe.image_link[0]}" class="card-img-top p-3 rounded-5" alt="...">
+    <h5 class="text center p-3">${universe.input_output_examples[0].input}</h5>
+    <p class="p-3">${universe.input_output_examples[0].output} </p>
+    `;
 }
 loadDetails();
 
