@@ -75,9 +75,9 @@ const loadDetails = async (id) => {
 }
 
 const displayLoadDetails = universe => {
-   
-    const detailsModal=document.getElementById('details-modal');
-    detailsModal.innerHTML=` 
+
+    const detailsModal = document.getElementById('details-modal');
+    detailsModal.innerHTML = ` 
     <h5>${universe.description}</h5>
     <div class="d-flex justify-content-between pt-3">
         <div>
@@ -111,13 +111,14 @@ const displayLoadDetails = universe => {
     </div> `;
 
 
-    const detailsModal1=document.getElementById('details-modal1');
-    detailsModal1.innerHTML=`
-    <img src="${universe.image_link[0]}" class="card-img-top p-3 rounded-5" alt="...">
+    const detailsModal1 = document.getElementById('details-modal1');
+    detailsModal1.innerHTML = `
+    <img src="${universe.image_link[0]}" class="card-img-top mt-2 p-3 rounded-5 position-relative" alt="...">
+    <span class="position-absolute start-50 translate-middle badge rounded-pill bg-danger pt-2 px-3 mt-4">${(universe.accuracy.score)*100}% Accuracy
+    <span class="visually-hidden">unread messages</span>
+  </span>
     <h5 class="text center p-3">${universe.input_output_examples[0].input}</h5>
     <p class="p-3">${universe.input_output_examples[0].output} </p>
     `;
 }
-// loadDetails();
-
 loadUniverseHub();
